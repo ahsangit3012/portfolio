@@ -433,110 +433,134 @@ a {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .video-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .video-row-centered video {
+    width: calc(33.333% - 1rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .left-panel {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 260px;
+    height: 100vh;
+    background-color: $sidebar-bg;
+    transition: left 0.3s ease;
+    z-index: 998;
+    padding-top: 4.5rem; // Space for toggle button
+
+    &.open {
+      left: 0;
+    }
+
+    .identity {
+      margin-top: 1.5rem;
+    }
+  }
+
+  .right-panel {
+    margin-left: 0;
+    padding: 5rem 2rem 2rem;
+  }
+
+  .language-list {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .video-row-centered video {
+    width: calc(50% - 1rem);
+  }
+
+  .project-item {
+    flex-direction: column;
+
+    .project-image img {
+      width: 100%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .left-panel {
+    text-align: center;
+
+    .nav-links,
+    .social-icons {
+      justify-content: center;
+      text-align: center;
+    }
+
+    .nav-links a,
+    .social-icons a {
+      display: inline-block;
+      margin: 0 0.75rem;
+    }
+  }
+
+  .identity h1 {
+    font-size: 1.4rem;
+  }
+
+  .identity .roles,
+  .subtitle {
+    font-size: 0.85rem;
+  }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .video-row-centered video {
+    width: 100%;
+  }
+}
+
+//toggle button//
+.menu-toggle {
+  display: none;
+  position: fixed;
+  top: 1rem;
+  left: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: $highlight;
+  z-index: 1001; // higher than .left-panel (998)
+  cursor: pointer;
+
   @media (max-width: 768px) {
-    .menu-toggle {
-      display: block;
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-panel {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 260px;
+    height: 100vh;
+    background-color: $sidebar-bg;
+    transition: left 0.3s ease;
+    z-index: 998;
+
+    &.open {
+      left: 0;
     }
+  }
 
-    .left-panel {
-      position: fixed;
-      top: 0;
-      left: -100%;
-      width: 260px;
-      height: 100vh;
-      background-color: $sidebar-bg;
-      transition: left 0.3s ease;
-      z-index: 998;
-      padding-top: 4.5rem; // Space for toggle button
-
-      &.open {
-        left: 0;
-      }
-
-      .identity {
-        margin-top: 1.5rem;
-      }
-    }
-
-    .right-panel {
-      margin-left: 0;
-      padding: 5rem 2rem 2rem;
-    }
-
-    .language-list {
-      flex-direction: column;
-      gap: 1rem;
-    }
-
-    @media (max-width: 600px) {
-      .left-panel {
-        text-align: center;
-
-        .nav-links,
-        .social-icons {
-          justify-content: center;
-          text-align: center;
-        }
-
-        .nav-links a,
-        .social-icons a {
-          display: inline-block;
-          margin: 0 0.75rem;
-        }
-      }
-
-      .identity h1 {
-        font-size: 1.4rem;
-      }
-
-      .identity .roles,
-      .subtitle {
-        font-size: 0.85rem;
-      }
-
-      .photo-grid {
-        grid-template-columns: 1fr;
-      }
-
-      //toggle button//
-      .menu-toggle {
-        display: none;
-        position: fixed;
-        top: 1rem;
-        left: 1.5rem;
-        background: none;
-        border: none;
-        font-size: 2rem;
-        color: $highlight;
-        z-index: 1001; // higher than .left-panel (998)
-        cursor: pointer;
-
-        @media (max-width: 768px) {
-          display: block;
-        }
-      }
-
-      @media (max-width: 768px) {
-        .left-panel {
-          position: fixed;
-          top: 0;
-          left: -100%;
-          width: 260px;
-          height: 100vh;
-          background-color: $sidebar-bg;
-          transition: left 0.3s ease;
-          z-index: 998;
-
-          &.open {
-            left: 0;
-          }
-        }
-
-        .right-panel {
-          margin-left: 0;
-          padding: 5rem 2rem 2rem; // padding top avoids overlap with toggle
-        }
-      }
-    }
+  .right-panel {
+    margin-left: 0;
+    padding: 5rem 2rem 2rem; // padding top avoids overlap with toggle
   }
 }
