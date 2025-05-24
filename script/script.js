@@ -47,3 +47,10 @@ closeModal.addEventListener("click", () => {
   modalVideo.pause();
   modalVideo.src = "";
 });
+//toggle button//
+const menuToggle = document.getElementById("menuToggle");
+const leftPanel = document.querySelector(".left-panel");
+
+menuToggle.addEventListener("click", () => {
+  leftPanel.classList.toggle("open");
+});
